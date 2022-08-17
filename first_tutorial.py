@@ -7,4 +7,5 @@ class SecondExample(Scene):
         area = ax.get_area(curve, x_range=(-2, 0))
 
         self.play(Create(ax), Create(curve))
+        self.play(FadeIn(area))
         self.wait(2)
