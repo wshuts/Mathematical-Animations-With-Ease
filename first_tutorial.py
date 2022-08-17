@@ -6,6 +6,5 @@ class SecondExample(Scene):
         curve = ax.plot(lambda x: (x+2)*x*(x-2), color=RED)
         area = ax.get_area(curve, x_range=(-2, 0))
 
-        self.play(Create(ax))
-        self.play(Create(curve))
+        self.play(Create(ax), Create(curve))
         self.wait(2)
