@@ -9,3 +9,8 @@ class SecondExample(Scene):
         self.play(Create(ax, run_time=2), Create(curve, run_time=5))
         self.play(FadeIn(area))
         self.wait(2)
+
+class SquareToCircle(Scene):
+    def construct(self):
+        green_square = Square(color=GREEN, fill_opacity=0.5)
+        self.play(DrawBorderThenFill(green_square))
