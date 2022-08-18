@@ -13,3 +13,8 @@ class Positioning(Scene):
         s = Square(color=ORANGE)
         s.shift(4*RIGHT + 2*UP)
         self.add(s)
+
+        c = Circle(color=PURPLE)
+        c.move_to([-3,-2,0])
+        self.add(c)
+
