@@ -26,3 +26,10 @@ class Positioning(Scene):
         c4.align_to(s, UP + RIGHT)
         self.add(c2, c3, c4)
 
+class CriticalPoints(Scene):
+    def construct(self):
+        c = Circle(color=GREEN, fill_opacity=0.5)
+        self.add(c)
+
+        for d in [(0,0,0), UP, DOWN, LEFT, RIGHT, UL, UR, DL, DR]:
+            self.add(Cross(scale_factor=0.2).move_to(c.get_critical_point(d)))
