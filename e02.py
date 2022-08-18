@@ -9,3 +9,7 @@ class Positioning(Scene):
         green_dot = Dot(color=GREEN)
         green_dot.next_to(red_dot, RIGHT + UP)
         self.add(red_dot, green_dot)
+
+        s = Square(color=ORANGE)
+        s.shift(4*RIGHT + 2*UP)
+        self.add(s)
