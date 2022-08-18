@@ -1,3 +1,4 @@
+from re import L, S
 from manim import *
 
 class Positioning(Scene):
@@ -33,3 +34,7 @@ class CriticalPoints(Scene):
 
         for d in [(0,0,0), UP, DOWN, LEFT, RIGHT, UL, UR, DL, DR]:
             self.add(Cross(scale_factor=0.2).move_to(c.get_critical_point(d)))
+
+        s = Square(color=RED, fill_opacity=0.5)
+        s.move_to([1,0,0], aligned_edge=LEFT)
+        self.add(s)
