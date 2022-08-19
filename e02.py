@@ -62,5 +62,5 @@ class Grouping(Scene):
         self.add(dot_group)
 
         circles = VGroup(*[Circle(radius = 0.2) for _ in range(10)])
-        circles.arrange(UP)
+        circles.arrange(UP, buff=0.5)
         self.add(circles)
