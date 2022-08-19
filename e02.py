@@ -50,3 +50,10 @@ class UsefulUnits(Scene):
         d = Dot()
         d.shift(100 * Pixels * RIGHT)
         self.add(d)
+
+class Grouping(Scene):
+    def construct(self):
+        red_dot = Dot(color=RED)
+        green_dot = Dot(color=GREEN).next_to(red_dot, RIGHT)
+        blue_dot = Dot(color=BLUE).next_to(red_dot, UP)
+        self.add(red_dot, green_dot, blue_dot)
