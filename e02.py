@@ -1,4 +1,5 @@
 from re import L, S
+from turtle import circle
 from manim import *
 
 class Positioning(Scene):
@@ -59,3 +60,7 @@ class Grouping(Scene):
         dot_group = VGroup(red_dot, green_dot, blue_dot)
         dot_group.to_edge(RIGHT)
         self.add(dot_group)
+
+        circles = VGroup(*[Circle(radius = 0.2) for _ in range(10)])
+        circles.arrange(UP)
+        self.add(circles)
