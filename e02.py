@@ -86,5 +86,8 @@ config.background_color = WHITE
 
 class ChangedDefaults(Scene):
     def construct(self):
+        Text.set_default(color=GREEN, font_size=100)
         t = Text("Hello World.")
+
+        Text.set_default()
         self.add(t)
