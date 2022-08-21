@@ -82,7 +82,7 @@ class SimpleScene(Scene):
         np = NumberPlane(x_range=(-4.5,4.5),y_range=(-8,8))
         self.add(t, np)
 
-config.background_color = WHITE
+config.background_color = BLACK
 
 class ChangedDefaults(Scene):
     def construct(self):
@@ -90,4 +90,5 @@ class ChangedDefaults(Scene):
         t = Text("Hello World.")
 
         Text.set_default()
-        self.add(t)
+        t2 = Text("Goodbye.").next_to(t, DOWN)
+        self.add(t, t2)
