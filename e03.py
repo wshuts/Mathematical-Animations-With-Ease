@@ -17,3 +17,8 @@ class BasicAnimations(Scene):
             run_time=2
         )
         self.wait()
+
+class ConflictingAnimations(Scene):
+    def construct(self):
+        s = Square()
+        self.play(Rotate(s,PI),Rotate(s,-PI), run_time=3)
