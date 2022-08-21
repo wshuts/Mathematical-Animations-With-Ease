@@ -70,14 +70,19 @@ class Grouping(Scene):
         self.add(stars)
 
 config.background_color = BLACK
-config.frame_width = 9
-config.frame_height = 16
+# config.frame_width = 9
+# config.frame_height = 16
 
-config.pixel_width = 1080
-config.pixel_height = 1920
+# config.pixel_width = 1080
+# config.pixel_height = 1920
 
 class SimpleScene(Scene):
     def construct(self):
         t = Triangle(color=PURPLE, fill_opacity=0.5)
         np = NumberPlane(x_range=(-4.5,4.5),y_range=(-8,8))
         self.add(t, np)
+
+class ChangedDefaults(Scene):
+    def construct(self):
+        t = Text("Hello World.")
+        self.add(t)
