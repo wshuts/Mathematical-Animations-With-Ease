@@ -82,6 +82,8 @@ class SimpleScene(Scene):
         np = NumberPlane(x_range=(-4.5,4.5),y_range=(-8,8))
         self.add(t, np)
 
+config.background_color = WHITE
+
 class ChangedDefaults(Scene):
     def construct(self):
         t = Text("Hello World.")
