@@ -69,12 +69,15 @@ class Grouping(Scene):
         stars.arrange_in_grid(4, 5, buff=0.2)
         self.add(stars)
 
-config.background_color = DARK_BLUE
-config.frame_width = 16
-config.frame_height = 9
+config.background_color = BLACK
+config.frame_width = 10
+config.frame_height = 10
+
+config.pixel_width = 500
+config.pixel_height =500
 
 class SimpleScene(Scene):
     def construct(self):
         t = Triangle(color=PURPLE, fill_opacity=0.5)
-        np = NumberPlane(x_range=(-8,8),y_range=(-4.5,4.5))
+        np = NumberPlane(x_range=(-8,8),y_range=(-5,5))
         self.add(t, np)
