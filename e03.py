@@ -22,3 +22,9 @@ class ConflictingAnimations(Scene):
     def construct(self):
         s = Square()
         self.play(Rotate(s,PI),Rotate(s,-PI), run_time=3)
+
+class LaggingGroup(Scene):
+    def construct(self):
+        squares = VGroup(*[Square(color=Color(hue=j/20,saturation=1,luminance=0.5),
+        fill_opacity=0.5) for j in range(20)]).arrange_in_grid(4,5).scale(0.75)
+        self.play(AnimationGroup(*[FadeIn(s) for s in squares], lag_ratio=0.15))
