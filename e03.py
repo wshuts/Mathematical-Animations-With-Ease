@@ -81,3 +81,22 @@ class SimpleCustomAnimation(Scene):
         d = Dot(color=WHITE)
         self.add(d)
         self.play(UpdateFromAlphaFunc(d, spiral_out), run_time=3)
+
+class Disperse(Animation):
+    def __init__(self, mobject, dot_radius=0.05, dot_number=100, **kwargs):
+        super().__init__(mobject, **kwargs)
+        self.dot_radius = dot_radius
+        self.dot_number = dot_number
+
+    def begin(self):
+        dots = VGroup(
+            *[Dot(radius=self.dot_radius).move_to(self.mobject.point_from_proportion(p))
+            for p in np.linspace(0, 1, self.dot_number)]
+        )
+        for dot in dots:
+            dot.initial_position = dot.get_center()
+            dot.shift_vector = 2*(dot.get_center() - self.mobject.get_center())
+        dots.set_opacity(0)
+        self.mobject.add(dots)
+        self.dots = dots
+        super().begin()
