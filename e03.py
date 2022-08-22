@@ -101,6 +101,16 @@ class Disperse(Animation):
         self.dots = dots
         super().begin()
 
-    def clean_up_from_scene(self, scene: Scene) -> None:
+    def clean_up_from_scene(self, scene: Scene):
         super().clean_up_from_scene(scene)
         scene.remove(self.dots)
+
+    def interpolate_mobject(self, alpha):
+        if alpha <= 0.5:
+            self.mobject.set_opacity(1 - 2*alpha, family=False)
+            self.dots.set_opacity(2*alpha)
+        else:
+            self.mobject.set_opacity(0)
+            self.dots.set_opacity(2*(1 - alpha))
+            for dot in self.dots:
+                dot.move_to(dot.initial_position + 2*(alpha - 0.5)*dot.shift_vector)
