@@ -100,3 +100,7 @@ class Disperse(Animation):
         self.mobject.add(dots)
         self.dots = dots
         super().begin()
+
+    def clean_up_from_scene(self, scene: Scene) -> None:
+        super().clean_up_from_scene(scene)
+        scene.remove(self.dots)
