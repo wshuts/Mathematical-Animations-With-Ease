@@ -114,3 +114,10 @@ class Disperse(Animation):
             self.dots.set_opacity(2*(1 - alpha))
             for dot in self.dots:
                 dot.move_to(dot.initial_position + 2*(alpha - 0.5)*dot.shift_vector)
+
+class CustomAnimationExample(Scene):
+    def construct(self):
+        st = Star(color=YELLOW, fill_opacity=1).scale(3)
+        self.add(st)
+        self.wait()
+        self.play(Disperse(st, dot_number=200, run_time=4))
