@@ -68,3 +68,16 @@ class AnimationMechanisms(Scene):
         self.wait()
         self.play(Restore(s), run_time=2)
         self.wait()
+
+class SimpleCustomAnimation(Scene):
+    def construct(self):
+        def spiral_out(mobject, t):
+            radius = 4*t
+            angle = 2*t * 2*PI
+            mobject.move_to(radius*(np.cos(angle)*RIGHT + np.sin(angle)*UP))
+            mobject.set_color(Color(hue=t, saturation=1, luminance=0.5))
+            mobject.set_opacity(1-t)
+
+        d = Dot(color=WHITE)
+        self.add(d)
+        self.play(UpdateFromAlphaFunc(d, spiral_out), run_time=3)
