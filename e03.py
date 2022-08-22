@@ -36,3 +36,5 @@ class AnimateSyntax(Scene):
         self.add(s,c)
 
         self.play(s.animate.shift(UP), c.animate.shift(DOWN))
+        self.play(VGroup(s,c).animate.arrange(RIGHT, buff=1))
+        self.play(c.animate(rate_func=linear).shift(RIGHT).scale(2))
