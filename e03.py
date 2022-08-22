@@ -106,6 +106,7 @@ class Disperse(Animation):
         scene.remove(self.dots)
 
     def interpolate_mobject(self, alpha):
+        alpha = self.rate_func(alpha)
         if alpha <= 0.5:
             self.mobject.set_opacity(1 - 2*alpha, family=False)
             self.dots.set_opacity(2*alpha)
