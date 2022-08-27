@@ -4,11 +4,12 @@ SECONDS = 10
 
 class AddWaitRemove(Scene):
     def construct(self):
-        square = Square()
+        
         for _ in range(SECONDS):
+            square = Square()
             self.AddWait(square)
             self.ShiftWait(square, 1)
-            #self.RemoveWait(square)
+            self.RemoveWait(square)
 
     def ShiftWait(self, square, shift):
         square.shift(RIGHT*shift)
