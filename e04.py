@@ -55,3 +55,19 @@ class UpdaterAndAnimation(Scene):
             rotating_square.animate.move_to([-2, -2, 0])
         )
         self.wait(1)
+
+class ValueTrackerExample(Scene):
+    def construct(self):
+        line = NumberLine(x_range=[-5,5])
+        position = ValueTracker(0)
+        pointer = Vector(DOWN)
+        pointer.add_updater(
+            lambda mob: mob.next_to(
+                line.number_to_point(position.get_value()), UP
+            )
+        )
+        pointer.update()
+        self.add(line, pointer)
+        self.wait()
+        self.play(position.animate.set_value(4))
+        self.play(position.animate.set_value(-2))
